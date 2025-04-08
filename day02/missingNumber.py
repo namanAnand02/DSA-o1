@@ -43,5 +43,6 @@ def missingNumber2(arr):
 
 print(missingNumber2([3,0,1])) ## 2
 
-
+## Time complexity: O(n)
+## Space complexity: O(1)
 
