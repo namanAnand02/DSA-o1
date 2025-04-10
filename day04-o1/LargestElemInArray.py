@@ -33,5 +33,6 @@ def largest2(nums):
 
 print(largest2([14,2,12,41,5,23])) ## 41 
 
-
+## Time : O(n)
+## space: o(1)
 
