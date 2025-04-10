@@ -1,5 +1,7 @@
 ## ~~~~~~~~ find the secind largest element in the array ~~~~~~~~~~\
 
+## https://www.geeksforgeeks.org/problems/second-largest3735/1
+
 
 def secondLargest(arr):
 
