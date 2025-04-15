@@ -15,7 +15,6 @@
 
 
 
-def findMinElem(nums):
 
     ## min elem always lies in right sorted side of array - only in case of rotated sorted array
     ## also note that in case of rotated sorted array, at any instance, mid elem always divides the array into two part - sorted and unsorted part - and if mid elem itself is not min elem, then min elem is always found in unsorted part of the array.
@@ -30,6 +29,7 @@ def findMinElem(nums):
     ## if arr[mid] <= arr[start] -- > mid lying in right sorted side --> move left of it 
     ## if arr[mid] >= arr[start] --> mid lying in left sorted side --> move right of it  
 
+def findMinElem(nums):
 
     start = 0 
     end = len(nums) -1 
