@@ -52,3 +52,4 @@ def firstOne(get):
         end = end* 2 
     
     return BS(start, end, 1)
+
