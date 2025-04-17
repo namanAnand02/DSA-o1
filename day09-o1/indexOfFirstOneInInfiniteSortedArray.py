@@ -53,3 +53,8 @@ def firstOne(get):
     
     return BS(start, end, 1)
 
+
+
+## time - o(logn)
+## space - o(1)
+
