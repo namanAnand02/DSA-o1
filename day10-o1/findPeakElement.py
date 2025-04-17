@@ -1,7 +1,7 @@
 
 ## ~~~~~~~~~~ Find peak element ~~~~~~~~~~~~~~
 
-## duplicates are not present 
+## duplicates are not present and any peak can be returned as the answer
 
 ## Leetcode medium - https://leetcode.com/problems/find-peak-element/description/
 
@@ -56,25 +56,30 @@ def findPeakElement(arr):
 ## ~~~~~~~~~ 
 
 ## what if duplicates are present in the array? 
+## and we have to return the maximum peak 
+
+## in case, duplicates are present, we'll have to use linear scan - BS can't find max peak in array with duplicates
 
 
-def findPeakWithDuplicates(arr):
-    start = 0
-    end = len(arr) - 1
-
-    while start < end:
-        mid = (start + end) // 2
-
-        if arr[mid] > arr[mid + 1]:
-            end = mid
-        elif arr[mid] < arr[mid + 1]:
-            start = mid + 1
-        else:
-            # arr[mid] == arr[mid + 1], reduce the search space conservatively
-            # Could also check arr[mid] == arr[mid-1], and adjust accordingly
-            end -= 1  # Or start += 1
-    return start  # or end, both are same here
+def findMaximumPeak(arr):
+    peak = arr[0]
+    for i in range(1, len(arr) - 1):
+        if arr[i] >= arr[i-1] and arr[i] >= arr[i+1]:
+            peak = max(peak, arr[i])
+    peak = max(peak, arr[0], arr[-1])
+    return peak
 
 
-arr = [1, 2, 2, 2, 3, 2, 1]
-print(findPeakWithDuplicates(arr)) ## 4 
+
+## time - o(n)
+## space = o(1)
+
+
+
+
+
+
+
+### NOTE : 
+## If we want any peak → Binary Search → O(log n)
+## But if we want the maximum peak → we must scan all elements → O(n) is the best possible.
