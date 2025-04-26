@@ -34,14 +34,48 @@ def findPeakElement(nums):
                 end = mid - 1 
 
 
-
+## time - o(logn)
     
-print(findPeakElement([1,2,3,1])) ## 2
-print(findPeakElement([11])) ## 0
-print(findPeakElement([11,12])) ## 1 
-print(findPeakElement([1,2,1,3,5,6,4]))  ## 5
+# print(findPeakElement([1,2,3,1])) ## 2
+# print(findPeakElement([11])) ## 0
+# print(findPeakElement([11,12])) ## 1 
+# print(findPeakElement([1,2,1,3,5,6,4]))  ## 5
             
 
 
+
+## Brute force approach - for loop 
+
+## o(n) time 
+
+## this approach is also helpful in finding the peak element even when there are duplicates in the array. 
+
+def findPeaK_brute(nums):
+    if len(nums) == 1:
+        return 0
+    for i in range(len(nums)):
+        if (i == 0 and nums[i] > nums[i +1 ]):
+            return i 
+        
+
+        elif (i == len(nums)-1 and nums[i] > nums[i -1 ]):
+            return i 
+        
+        else:
+            if (nums[i] > nums[i + 1] and nums[i] > nums[i -1 ]):
+                return i 
+            
+
+
+## time - o(n) 
+
+print(findPeaK_brute([10])) ## 0
+print(findPeaK_brute([10,12])) ## 1 
+print(findPeaK_brute([10,12, 11, 9, 13, 8])) ## 1 
+print(findPeaK_brute([10,11,13, 19, 23, 24])) ## 5
+
+
+## in case the question asks us to return all the peaks -- we can do that as well with this approach 
+## we can store all the peaks in a separate data structure as we move along the array and find them and then finally return that data structure as the final answer. 
         
     
