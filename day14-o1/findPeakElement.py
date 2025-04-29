@@ -121,3 +121,13 @@ print(findPeaK_brute([10]))  ## 0
 print(findPeaK_brute([10,12])) ## 1
 print(findPeaK_brute([10,12, 11, 9, 13, 8]))  ## 4
 print(findPeaK_brute([10,11,13, 19, 23, 24])) ## 5
+
+
+
+
+## If ques expects us to return the max peak value index and not any of the peak, then binary search wont be helpful. 
+## ye ques to simple find the largest element ban gya, right? 
+
+
+## in that case - use normal traversing - o(N)
+## or use max function - max(arr)
