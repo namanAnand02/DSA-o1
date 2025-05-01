@@ -138,7 +138,7 @@ class Atm:
                 # self.menu()
             else:
                 ## he asked from money more that what is in his account
-                print("stay in your linit, young man! ")
+                print("stay in your limit, young man! ")
                 # self.menu()
                 
 
