@@ -163,3 +163,59 @@ print(rev2("a ab abc abcd x xy xyz")) ## a ba cba dcba x yx zyx
 
 ## sentence.split("delimeter") - use when want to split a sentence into words - they gets splitted and stored in the form of list. 
 ## list(str) --> use it when want to convert string words into characters - they gets splittted and stored in the form of list 
+
+
+
+
+## ~~~~~~~~~~~~ Title method of string ~~~~~~~~~~~~~~~~~~~
+
+## capitalize the first char of each word in the string 
+
+def titleStr(s):
+    li = s.split()
+
+    ## for i in li:
+    ##     i = i[0].upper() + i[1:].lower()
+    ## the above thinggy wont work as it saves reference and not the original
+    ## and we are doing the modificatiosn to the referenced i 
+
+    ## so use range(len(li)) 
+    
+    for i in range(len(li)):
+        li[i] = li[i][0].upper() + li[i][1:].lower()
+
+    return " ".join(li)
+
+
+
+print(titleStr("python Hello world demon")) ## Python Hello World Demon
+
+## time - o(n)
+## space - o(n)
+
+
+
+
+## ~~~~~~~~~~~ convert first and last character of each word into upper in a sentence ~~~~~~~~~~~
+
+## sentence = "python hello world demon Hitler"
+
+## o/p : "PythoN HellO WorlD DemoN HitleR"
+
+
+def func(s):
+    li = s.split(" ")
+
+    for i in range(len(li)):
+        li[i] = li[i][0].upper() + li[i][1:len(li[i])-1].lower() + li[i][-1].upper()
+        # li[i] = li[i][0].upper() + li[i][1:-1].lower() + li[i][-1].upper()
+
+
+    return " ".join(li)
+
+
+print(func("python hello world demon Hitler")) ## PythoN HellO WorlD DemoN HitleR
+
+## time - o(n)
+## space - o(n)
+
