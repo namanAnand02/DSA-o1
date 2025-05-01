@@ -216,6 +216,30 @@ def func(s):
 
 print(func("python hello world demon Hitler")) ## PythoN HellO WorlD DemoN HitleR
 
+
+## the above code has a bug - in case of only one char in any word, it will add two chars in the output. 
+## to avoid that, we have to explicitly handle such cases when the length of a particular word is 1. 
+
+def func(s):
+    li = s.split(" ")
+
+    for i in range(len(li)):
+
+        if len(li[i]) != 1:
+            li[i] = li[i][0].upper() + li[i][1:len(li[i])-1].lower() + li[i][-1].upper()
+            # li[i] = li[i][0].upper() + li[i][1:-1].lower() + li[i][-1].upper()
+
+        else:
+            li[i] = li[i].upper()
+
+
+    return " ".join(li)
+
+
+print(func("python hello world demon Hitler")) ## PythoN HellO WorlD DemoN HitleR
+
+print(func("a ab abc abcd x xy xyz"))
+
 ## time - o(n)
 ## space - o(n)
 
