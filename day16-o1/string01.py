@@ -44,3 +44,29 @@ print(reverseTheSentence("a ab abc abcd abcde"))
 
 
 
+## ~~~~~~~~~~~ Even indexed words REVERSAL ~~~~~~~~~~~~~~~~~~~~~
+
+
+## str = "a ab abc abcd x xy xyz"
+
+## o/p:  a ab cba abcd x xy zyx
+
+
+def evenIndxReversal(str):
+    li = str.split(" ")
+    for i in range(len(li)):
+        if i % 2 == 0: 
+            li[i] = li[i][::-1]
+        
+    return " ".join(li)
+
+
+
+print(evenIndxReversal("a ab abc abcd x xy xyz"))
+## a ab cba abcd x xy zyx
+
+
+## time - o(n)
+## space - o(n)
+
+
