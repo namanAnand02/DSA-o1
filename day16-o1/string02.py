@@ -186,3 +186,79 @@ print(removeDupliChars("abcaba")) ## abc
 
  
 
+
+
+
+## ~~~~~~~~~~~~ 06. Remove special characters ~~~~~~~~~~~~~~~~~~~
+
+
+## we need to remove all the special chars from the string and return the cleaner string 
+
+
+## method 01 // 
+def removeSpecial(s):
+    cleanedStr = ""
+    for i in s:
+        if i.isalnum() or i.isspace():
+            cleanedStr += i 
+            ## Each time we use +=, a new string is created (since strings are immutable in Python).
+
+
+    return cleanedStr
+
+## string concatenation - O(n^2)
+## Each time we use +=, a new string is created (since strings are immutable in Python).
+## thats why, time - o(n^2)
+## space - o(n)
+
+
+print(removeSpecial('ashudb@31##67&hg*%90')) ## ashudb3167hg90
+
+
+
+## method 02// 
+## using list comprehensions 
+
+def removeSpecial2(s):
+    return "".join([i for i in s if i.isalnum() or i.isspace()])
+
+
+## time - o(n) : join is o(n) and list comprehension is o(n) - so overall o(n)
+## space - O(n) 
+
+print(removeSpecial2('ashudb@31##67&hg*%90')) ## ashudb3167hg90
+ 
+
+
+## we can also try implementing swhtring comprehensions to do it. 
+
+def removeSpecial3(s):
+    ## return (i for i in s if i.isalnum() or i.isspace()) ## <generator object removeSpecial3.<locals>.<genexpr> at 0x000001C1BF588110>
+    return "".join(i for i in s if i.isalnum() or i.isspace())
+
+## most memory efficient of all three methods 
+## just make sure to use join at last 
+## time - o(n)
+## space - o(1)
+
+
+print(removeSpecial3('ashudb@31##67&hg*%90##1-1')) ## ashudb3167hg9011
+
+
+
+
+
+## what is a generator in python? 
+
+## -> A generator is a special type of iterator in Python that allows you to iterate over a sequence of values one at a time, without storing them all in memory.
+## created using Generator expressions (like list comprehensions but with () instead of [])
+## it is memory efficient - no need to store all values at once - great for working with large files 
+
+
+
+## method 04 // regular expressions 
+
+import re
+
+def remove_special_chars_regex(s):
+    return re.sub(r"[^a-zA-Z0-9\s]", "", s)
