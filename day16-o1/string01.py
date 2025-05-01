@@ -243,3 +243,58 @@ print(func("a ab abc abcd x xy xyz"))
 ## time - o(n)
 ## space - o(n)
 
+
+
+## ~~~~~~~ comvert every char except first and last into upper case ~~~~~~~~~~~~~~
+
+
+def newFunc(s):
+    li = s.split(" ")
+
+    for i in range(len(li)):
+
+        ## what if word length is 1? - handle it explicitly 
+        if len(li[i]) != 1:
+
+            li[i] = li[i][0].lower() + li[i][1:len(li[i])-1].upper() + li[i][-1].lower()
+
+        else:
+            ## when word length is 1 
+            
+            li[i].lower()
+
+
+    return " ".join(li)
+
+
+print(newFunc("a ab abc abcd abcde abcdef abcdefg"))
+## a ab aBc aBCd aBCDe aBCDEf aBCDEFg
+
+## time - o(n)
+## space - o(n)
+
+
+
+
+## ~~~~~~~~ convert every even length word into upper ~~~~~~~~~~~~~~~~~
+
+
+def evenLengthWordIntoUpper(s):
+    li = s.split(" ")
+
+    for i in range(len(li)):
+        if len(li[i]) % 2 == 0:
+            ## this is even length word in the sentence 
+            ## so lets make this into upper case 
+            li[i] = li[i].upper()
+
+
+    return " ".join(li)
+
+
+print(evenLengthWordIntoUpper("a ab abc abcd x xy xyz wxyz vwxyz uvwxyz"))
+## a AB abc ABCD x XY xyz WXYZ vwxyz UVWXYZ
+
+
+## time - o(n)
+## space - o(n)
