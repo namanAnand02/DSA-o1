@@ -262,3 +262,73 @@ import re
 
 def remove_special_chars_regex(s):
     return re.sub(r"[^a-zA-Z0-9\s]", "", s)
+  
+
+
+
+
+
+## ~~~~~~~~~~~~~~~~~ 07: remove vowels from a string ~~~~~~~~~~~~~~~~
+
+def removeVowels(s):
+    result = ""
+    vowelsSet = set("aeiouAEIOU")
+    for i in s: ## o(n)
+        if i not in vowelsSet: ## o(1)
+            result += i 
+
+    return result 
+
+## time - o(n^2) in worst case scenario - when string is so long 
+## space - o(n)
+
+## the above approach looks decent enough - ticking all the imp boxes 
+## like using set for lookup  - o(1) hota hai ye 
+
+
+## but there is a subtle inefficiency in this code - needs to be known for the interview 
+
+## result += i --> it creates a new string on each iteration because strings are immutable in python. 
+## so when the string is so long, might as well drag the complexity to o(n ^ 2) due to repeated copying of intermediate strings. 
+
+
+
+
+
+## If you're asked "Can you optimize it further?", respond with:
+
+## ---->  "Yes — since string concatenation is costly in Python due to immutability, I’ll use a list to collect characters and then ''.join() them. This reduces time from O(n²) to O(n), especially for long strings."
+
+
+
+
+
+## optimised version : using list and join method 
+
+def removeVowelsOptimised(s):
+    vowelsSet = set("aeiouAEIOU")
+    result = []
+    for char in s: 
+        if char not in vowelsSet:
+            result.append(char)
+
+    return "".join(result)
+
+
+## time - o(n)
+## space - o(n)
+
+
+
+## NOTE: In interviews, always prefer the list + join() pattern for string building in Python.
+
+#### NOTE: in interviews, rarely go for string concatenation - 
+### - always prefer list + join
+### - use hashmap or set for lookups etc work as their time is o(1)
+
+
+
+
+
+
+        
